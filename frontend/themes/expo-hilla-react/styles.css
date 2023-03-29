@@ -1,0 +1,7 @@
+a {
+  color: var(--lumo-text-color);
+}
+
+a.active {
+  text-decoration: underline;
+}
