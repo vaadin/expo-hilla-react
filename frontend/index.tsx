@@ -1,6 +1,5 @@
-import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import router from "./routes.js";
+import { createRoot } from 'react-dom/client';
+import { App } from './App.js';
 
-const root = createRoot(document.getElementById("outlet")!);
-root.render(<RouterProvider router={router} />);
+const root = createRoot(document.getElementById('outlet')!);
+root.render(<App />);

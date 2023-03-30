@@ -15,6 +15,7 @@
     "@hilla/generator-typescript-utils": "2.0.2",
     "@hilla/react-components": "2.0.2",
     "@polymer/polymer": "3.5.1",
+    "@preact/signals-react": "^1.2.2",
     "@vaadin-component-factory/vcf-nav": "1.1.0",
     "@vaadin/bundles": "24.0.2",
     "@vaadin/common-frontend": "0.0.17",
@@ -82,7 +83,8 @@
     "@vaadin/vaadin-lumo-styles": "$@vaadin/vaadin-lumo-styles",
     "@hilla/generator-typescript-plugin-backbone": "$@hilla/generator-typescript-plugin-backbone",
     "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
-    "@hilla/generator-typescript-cli": "$@hilla/generator-typescript-cli"
+    "@hilla/generator-typescript-cli": "$@hilla/generator-typescript-cli",
+    "@preact/signals-react": "$@preact/signals-react"
   },
   "vaadin": {
     "dependencies": {
@@ -127,6 +129,6 @@
       "workbox-core": "6.5.4",
       "workbox-precaching": "6.5.4"
     },
-    "hash": "58dccd5e023ad63f6c13a9e450dcc604e23881f25d21297f522e8e4aa1ed338a"
+    "hash": "fe09b77851516fb98b0aced5077407be34b2b4b9093d2031c808ff6af9594c9c"
   }
 }
