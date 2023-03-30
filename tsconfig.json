@@ -11,7 +11,7 @@
     "inlineSources": true,
     "module": "esNext",
     "target": "es2020",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "strict": true,
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,

@@ -1,7 +1,6 @@
 import { Button } from '@hilla/react-components/Button.js';
-import { ComboBox } from '@hilla/react-components/ComboBox';
 import { TextField } from '@hilla/react-components/TextField.js';
-import { HelloWorldEndpoint } from 'Frontend/generated/endpoints';
+import { HelloWorldEndpoint } from 'Frontend/generated/endpoints.js';
 import { useState } from 'react';
 
 export function SandboxView() {
