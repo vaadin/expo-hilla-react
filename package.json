@@ -29,15 +29,19 @@
     "@vaadin/vaadin-themable-mixin": "24.0.2",
     "classnames": "^2.3.2",
     "construct-style-sheets-polyfill": "3.1.0",
+    "leaflet": "^1.9.3",
+    "line-awesome": "^1.3.0",
     "lit": "2.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.4.2"
   },
   "devDependencies": {
     "@lit-labs/react": "^1.1.0",
     "@rollup/plugin-replace": "5.0.2",
     "@rollup/pluginutils": "5.0.2",
+    "@types/leaflet": "^1.9.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "~3.0.1",
@@ -84,7 +88,10 @@
     "@hilla/generator-typescript-plugin-backbone": "$@hilla/generator-typescript-plugin-backbone",
     "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
     "@hilla/generator-typescript-cli": "$@hilla/generator-typescript-cli",
-    "@preact/signals-react": "$@preact/signals-react"
+    "@preact/signals-react": "$@preact/signals-react",
+    "leaflet": "$leaflet",
+    "line-awesome": "$line-awesome",
+    "react-leaflet": "$react-leaflet"
   },
   "vaadin": {
     "dependencies": {
@@ -129,6 +136,6 @@
       "workbox-core": "6.5.4",
       "workbox-precaching": "6.5.4"
     },
-    "hash": "fe09b77851516fb98b0aced5077407be34b2b4b9093d2031c808ff6af9594c9c"
+    "hash": "cad4a6a31efc6622d3f2cc66258752db1a8eb1f46205594389e3441f7bf637fb"
   }
 }

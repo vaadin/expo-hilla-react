@@ -1,9 +1,19 @@
+@import url('line-awesome/dist/line-awesome/css/line-awesome.min.css');
+@import url('leaflet/dist/leaflet.css');
+
 a {
+  padding: var(--lumo-space-s);
   color: var(--lumo-text-color);
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 a.active {
-  text-decoration: underline;
+  background-color: var(--lumo-primary-color-10pct);
+  color: var(--lumo-primary-text-color);
+  text-decoration: none;
 }
 
 .badge {

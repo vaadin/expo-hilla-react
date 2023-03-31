@@ -16,15 +16,30 @@ export default function MainLayout() {
       <div className="p-m" slot="drawer">
         <h2 className="text-l m-0">Hilla+React</h2>
 
-        <ul className="list-none px-0">
+        <ul className="list-none px-0 text-secondary">
           <li>
-            <NavLink to="/">CRUD</NavLink>
+            <NavLink to="/" className="flex gap-s items-center">
+              <i className="la la-columns"></i>
+              CRUD
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard">Dashboard</NavLink>
+            <NavLink to="/dashboard" className="flex gap-s items-center">
+              <i className="la la-chart-area"></i>
+              Dashboard
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/sandbox">Sandbox</NavLink>
+            <NavLink to="/map" className="flex gap-s items-center">
+              <i className="la la-map"></i>
+              Map
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/sandbox" className="flex gap-s items-center">
+              <i className="la la-glasses"></i>
+              Sandbox
+            </NavLink>
           </li>
         </ul>
       </div>
