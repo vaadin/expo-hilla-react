@@ -12,6 +12,7 @@ import {
   GridActiveItemChangedEvent,
 } from '@hilla/react-components/Grid.js';
 import { GridColumn } from '@hilla/react-components/GridColumn.js';
+import { SplitLayout } from '@hilla/react-components/SplitLayout.js';
 import {
   TextField,
   TextFieldChangeEvent,
@@ -61,10 +62,11 @@ export function CrudView() {
   }
 
   return (
-    <div className="h-full p-m box-border flex gap-s">
+    <SplitLayout className="h-full p-m box-border">
       <Grid
         items={people}
         className="h-full"
+        style={{ width: '70%' }}
         onActiveItemChanged={activeChanged}
         selectedItems={selected ? [selected] : undefined}>
         <GridColumn path="firstName" />
@@ -75,7 +77,10 @@ export function CrudView() {
         <GridColumn path="country" />
       </Grid>
 
-      <div className="flex flex-col gap-s p-m" hidden={!selected}>
+      <div
+        className="flex flex-col gap-s p-m"
+        hidden={!selected}
+        style={{ width: '30%' }}>
         <TextField
           label="First name"
           name="firstName"
@@ -111,6 +116,6 @@ export function CrudView() {
           </Button>
         </div>
       </div>
-    </div>
+    </SplitLayout>
   );
 }
