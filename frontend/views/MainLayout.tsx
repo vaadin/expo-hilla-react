@@ -1,10 +1,16 @@
 import { AppLayout } from '@hilla/react-components/AppLayout.js';
 import { DrawerToggle } from '@hilla/react-components/DrawerToggle.js';
 import Placeholder from 'Frontend/components/placeholder/Placeholder.js';
-import { Suspense } from 'react';
+import { createContext, Suspense, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
-export default function MenuOnLeftLayout() {
+export const TitleContext = createContext((title: string) =>
+  console.warn('No title provider')
+);
+
+export default function MainLayout() {
+  const [title, setTitle] = useState('');
+
   return (
     <AppLayout className="h-full" primarySection="drawer">
       <div className="p-m" slot="drawer">
@@ -25,12 +31,14 @@ export default function MenuOnLeftLayout() {
 
       <div slot="navbar" className="flex gap-m items-center">
         <DrawerToggle aria-label="Menu toggle"></DrawerToggle>
-        <h1 className="text-l m-0">Demo App</h1>
+        <h1 className="text-l m-0">{title}</h1>
       </div>
 
-      <Suspense fallback={<Placeholder />}>
-        <Outlet />
-      </Suspense>
+      <TitleContext.Provider value={setTitle}>
+        <Suspense fallback={<Placeholder />}>
+          <Outlet />
+        </Suspense>
+      </TitleContext.Provider>
     </AppLayout>
   );
 }

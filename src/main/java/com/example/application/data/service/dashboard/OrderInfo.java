@@ -8,7 +8,7 @@ public class OrderInfo {
     @Nonnull
     private String city;
     @Nonnull
-    private List<Integer> values;
+    private List<@Nonnull Integer> values;
 
     public OrderInfo(String city, List<Integer> values) {
         this.city = city;
@@ -23,7 +23,8 @@ public class OrderInfo {
         this.city = city;
     }
 
-    public List<Integer> getValues() {
+    @Nonnull
+    public List<@Nonnull Integer> getValues() {
         return values;
     }
 

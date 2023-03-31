@@ -1,11 +1,18 @@
 import { Button } from '@hilla/react-components/Button.js';
 import { TextField } from '@hilla/react-components/TextField.js';
 import { HelloWorldEndpoint } from 'Frontend/generated/endpoints.js';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { TitleContext } from './MainLayout.js';
 
 export function SandboxView() {
   const [name, setName] = useState('');
   const [greetings, setGreetings] = useState<string[]>([]);
+  const setTitle = useContext(TitleContext);
+
+  useEffect(() => {
+    setTitle('Sandbox');
+    return () => setTitle('');
+  }, []);
 
   async function sayHello() {
     const greeting = await HelloWorldEndpoint.sayHello(name);
