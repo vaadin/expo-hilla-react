@@ -4,14 +4,15 @@ import Placeholder from 'Frontend/components/placeholder/Placeholder.js';
 import { views } from 'Frontend/routes.js';
 import { Suspense } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import logo from '../images/hilla-dark.png';
 
 export default function MainLayout() {
   const location = useLocation();
 
   return (
     <AppLayout className="h-full" primarySection="drawer">
-      <div className="p-m" slot="drawer">
-        <h2 className="text-l m-0">Hilla+React</h2>
+      <div className="p-m flex flex-col gap-m" slot="drawer">
+        <img src={logo} alt="Hilla logo" style={{ width: '40%' }} />
 
         <ul className="list-none px-0 text-secondary font-medium">
           {views.map((view) => (
