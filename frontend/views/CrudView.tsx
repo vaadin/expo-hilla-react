@@ -20,20 +20,13 @@ import {
 import Person from 'Frontend/generated/com/example/application/data/entity/Person.js';
 import { CrudEndpoint } from 'Frontend/generated/endpoints.js';
 import { useContext, useEffect, useState } from 'react';
-import { TitleContext } from './MainLayout.js';
 
 export function CrudView() {
   const [selected, setSelected] = useState<Person | null>(null);
   const [people, setPeople] = useState<Person[]>([]);
-  const setTitle = useContext(TitleContext);
 
   useEffect(() => {
     CrudEndpoint.findAll().then((people) => setPeople(people));
-  }, []);
-
-  useEffect(() => {
-    setTitle('CRUD');
-    return () => setTitle('');
   }, []);
 
   async function save() {

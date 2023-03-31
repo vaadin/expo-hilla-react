@@ -7,12 +7,10 @@ import Metric from 'Frontend/generated/com/example/application/data/service/dash
 import OrderInfo from 'Frontend/generated/com/example/application/data/service/dashboard/OrderInfo.js';
 import { DashboardEndpoint } from 'Frontend/generated/endpoints.js';
 import { useContext, useEffect, useState } from 'react';
-import { TitleContext } from './MainLayout.js';
 
 export function DashboardView() {
   const [metrics, setMetrics] = useState<Metric[]>([]);
   const [orderInfo, setOrderInfo] = useState<OrderInfo[]>([]);
-  const setTitle = useContext(TitleContext);
 
   const years = [
     { label: '2023' },
@@ -34,11 +32,6 @@ export function DashboardView() {
     'Nov',
     'Dec',
   ];
-
-  useEffect(() => {
-    setTitle('Dashboard');
-    return () => setTitle('');
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

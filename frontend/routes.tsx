@@ -5,16 +5,32 @@ import { DashboardView } from './views/DashboardView.js';
 import { MapView } from './views/MapView.js';
 import { SandboxView } from './views/SandboxView.js';
 
-export const routes: RouteObject[] = [
+type ViewRoute = RouteObject & {
+  title: string;
+  icon: string;
+};
+
+export const views: ViewRoute[] = [
+  { path: '/', title: 'CRUD', icon: 'la-columns', element: <CrudView /> },
+  {
+    path: '/dashboard',
+    title: 'Dashboard',
+    icon: 'la-chart-area',
+    element: <DashboardView />,
+  },
+  { path: '/map', title: 'Map', icon: 'la-map', element: <MapView /> },
+  {
+    path: '/sandbox',
+    title: 'Sandbox',
+    icon: 'la-glasses',
+    element: <SandboxView />,
+  },
+];
+
+const routes: RouteObject[] = [
   {
     element: <MainLayout />,
-    children: [
-      { path: '/', element: <CrudView /> },
-      { path: '/crud', element: <CrudView /> },
-      { path: '/dashboard', element: <DashboardView /> },
-      { path: '/map', element: <MapView /> },
-      { path: '/sandbox', element: <SandboxView /> },
-    ],
+    children: views,
   },
 ];
 
