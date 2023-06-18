@@ -3,13 +3,14 @@ package com.example.application.service.openai;
 import com.example.application.service.openai.data.Message;
 import com.vaadin.flow.spring.annotation.UIScope;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@UIScope
+@SessionScope
 public class ChatGPTService {
 
     private final ChatGPTClient chatGPTClient;

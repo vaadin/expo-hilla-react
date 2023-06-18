@@ -25,8 +25,13 @@ html {
   --vaadin-input-field-border-color: var(--lumo-shade-10pct);
 }
 
+/* Hilla Colors */
 [theme~="dark"] {
   --lumo-base-color: rgb(18, 26, 36);
+  --lumo-primary-text-color: rgb(255, 0, 107);
+  --lumo-primary-color-50pct: rgba(255, 0, 107, 0.5);
+  --lumo-primary-color-10pct: rgba(255, 0, 107, 0.1);
+  --lumo-primary-color: #FF006B;
 }
 
 /*html {*/
