@@ -25,6 +25,9 @@ html {
   --vaadin-input-field-border-color: var(--lumo-shade-10pct);
 }
 
+[theme~="dark"] {
+  --lumo-base-color: rgb(18, 26, 36);
+}
 
 /*html {*/
 /*    --lumo-border-radius: 6px;*/
