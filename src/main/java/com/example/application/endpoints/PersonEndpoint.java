@@ -2,16 +2,16 @@ package com.example.application.endpoints;
 
 import java.util.List;
 import com.example.application.data.entity.Person;
-import com.example.application.data.service.dashboard.PersonRepository;
+import com.example.application.data.repository.PersonRepository;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.Endpoint;
 
 @Endpoint
 @AnonymousAllowed
-class CrudEndpoint {
+class PersonEndpoint {
   private PersonRepository repo;
 
-  CrudEndpoint(PersonRepository repo) {
+  PersonEndpoint(PersonRepository repo) {
     this.repo = repo;
   }
 

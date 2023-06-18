@@ -3,7 +3,7 @@
 
 a {
   padding: var(--lumo-space-s);
-  color: var(--lumo-text-color);
+  color: var(--lumo-body-text-color);
 }
 
 a:hover {
@@ -16,31 +16,28 @@ a.active {
   text-decoration: none;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 0.4em calc(0.5em + var(--lumo-border-radius-s) / 4);
-  color: var(--lumo-primary-text-color);
-  background-color: var(--lumo-primary-color-10pct);
-  border-radius: var(--lumo-border-radius-s);
-  font-family: var(--lumo-font-family);
-  font-size: var(--lumo-font-size-s);
-  line-height: 1;
-  font-weight: 500;
-  text-transform: initial;
-  letter-spacing: initial;
-  min-width: calc(var(--lumo-line-height-xs) * 1em + 0.45em);
-  flex-shrink: 0;
+vaadin-button {
+  border: 1px solid var(--lumo-shade-10pct);
 }
 
-.success {
-  color: var(--lumo-success-text-color);
-  background-color: var(--lumo-success-color-10pct);
+html {
+  --vaadin-input-field-border-width: 1px;
+  --vaadin-input-field-border-color: var(--lumo-shade-10pct);
 }
 
-.error {
-  color: var(--lumo-error-text-color);
-  background-color: var(--lumo-error-color-10pct);
-}
+
+/*html {*/
+/*    --lumo-border-radius: 6px;*/
+/*    --lumo-primary-text-color: rgb(217, 8, 112);*/
+/*    --lumo-primary-color-50pct: rgba(217, 8, 112, 0.5);*/
+/*    --lumo-primary-color-10pct: rgba(217, 8, 112, 0.1);*/
+/*    --lumo-primary-color: hsl(330, 93%, 44%);*/
+/*}*/
+
+/*[theme~="dark"] {*/
+/*    --lumo-border-radius: 0px;*/
+/*    --lumo-primary-text-color: rgb(20, 179, 147);*/
+/*    --lumo-primary-color-50pct: rgba(20, 179, 147, 0.5);*/
+/*    --lumo-primary-color-10pct: rgba(20, 179, 147, 0.1);*/
+/*    --lumo-primary-color: hsl(168, 80%, 39%);*/
+/*}*/
