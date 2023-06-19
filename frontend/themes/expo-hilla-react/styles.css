@@ -24,6 +24,11 @@ vaadin-button[theme~='tertiary'] {
   border: none;
 }
 
+vaadin-login-form-wrapper {
+  background: none;
+}
+
+
 html {
   --vaadin-input-field-border-width: 1px;
   --vaadin-input-field-border-color: var(--lumo-shade-10pct);
