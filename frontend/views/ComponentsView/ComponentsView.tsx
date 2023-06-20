@@ -23,6 +23,8 @@ import { LoginForm } from '@hilla/react-components/LoginForm';
 import { Tabs } from '@hilla/react-components/Tabs';
 import { Tab } from '@hilla/react-components/Tab';
 import { RichTextEditor } from '@hilla/react-components/RichTextEditor';
+import { Chart } from '@hilla/react-components/Chart';
+import { ChartSeries } from '@hilla/react-components/ChartSeries';
 
 type PersonWithFullName = Person & {
   name: string
@@ -103,6 +105,16 @@ export function ComponentsView() {
           itemValuePath='id'
           label='People' value={people[1]?.id}
         />
+      </div>
+
+      <div className='component col-span-2 tall'>
+        <Chart type='pie'>
+          <ChartSeries values={[
+            { name: 'Yes', y: 10 },
+            { name: 'No', y: 20 },
+            { name: 'Maybe', y: 5 }
+          ]} />
+        </Chart>
       </div>
 
       <div className='component tall col-span-2 flex-col'>
