@@ -29,8 +29,40 @@ import { ChartSeries } from '@hilla/react-components/ChartSeries';
 type PersonWithFullName = Person & {
   name: string
 }
+
+type DataPoint = {
+  x: number;
+  y: number;
+}
+
 export function ComponentsView() {
   const [people, setPeople] = useState<PersonWithFullName[]>([]);
+  const [developerProductivity, setDeveloperProductivity] = useState<DataPoint[]>([]);
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const startDate = new Date(2023, 0, 1); // JavaScript month index starts from 0
+    const timerId = setInterval(() => {
+      setCounter((prevCounter) => {
+        const newCounter = prevCounter + 1;
+        const newValue = Math.pow(newCounter, 1.02) + (10 * Math.sin(newCounter / 50.0)) + (Math.random() * 5);
+        startDate.setDate(startDate.getDate() + 1);
+        const newPoint: DataPoint = { x: startDate.getTime(), y: newValue };
+
+        setDeveloperProductivity((prevProductivity) => {
+          if (prevProductivity.length >= 50) {
+            return [...prevProductivity.slice(1), newPoint];
+          } else {
+            return [...prevProductivity, newPoint];
+          }
+        });
+
+        return newCounter;
+      });
+    }, 500);
+
+    return () => clearInterval(timerId);
+  }, []);
 
   const messages: MessageListItem[] = [
     {
@@ -50,16 +82,30 @@ export function ComponentsView() {
 
   useEffect(() => {
     PersonEndpoint.findAll().then((people) => setPeople(
-      people.map(p => ({...p, name: `${p.firstName} ${p.lastName}`}))
+      people.map(p => ({ ...p, name: `${p.firstName} ${p.lastName}` }))
     ));
   }, []);
 
   return (
     <div className='components-view'>
 
-      <div className='component tall col-span-2'>
-        <LoginForm />
+      <div className='component col-span-3 tall'>
+        <Chart type="line" title="Developer productivity" options={{
+          xAxis: {
+            type: 'datetime',
+          },
+          plotOptions: {
+            line: {
+              marker: {
+                enabled: false
+              }
+            }
+          }
+        }}>
+          <ChartSeries type="line" values={developerProductivity} title="Productivity" unit="kLOC/h" />
+        </Chart>
       </div>
+
 
       <div className='component'>
         <div className='flex gap-s'>
@@ -74,6 +120,10 @@ export function ComponentsView() {
           <RadioButton label='Option 2' value='2' />
           <RadioButton label='Option 3' value='3' />
         </RadioGroup>
+      </div>
+
+      <div className='component tall col-span-2'>
+        <LoginForm />
       </div>
 
       <div className='component col-span-2'>
@@ -107,15 +157,7 @@ export function ComponentsView() {
         />
       </div>
 
-      <div className='component col-span-2 tall'>
-        <Chart type='pie'>
-          <ChartSeries values={[
-            { name: 'Yes', y: 10 },
-            { name: 'No', y: 20 },
-            { name: 'Maybe', y: 5 }
-          ]} />
-        </Chart>
-      </div>
+
 
       <div className='component tall col-span-2 flex-col'>
         <MessageList className='flex-grow' items={messages} />
