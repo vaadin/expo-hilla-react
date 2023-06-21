@@ -90,7 +90,7 @@ export function ComponentsView() {
     <div className='components-view'>
 
       <div className='component col-span-3 tall'>
-        <Chart type="line" title="Developer productivity" options={{
+        <Chart type="line" title="Developer productivity" additionalOptions={{
           xAxis: {
             type: 'datetime',
           },
