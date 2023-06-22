@@ -59,7 +59,7 @@ export function ComponentsView() {
 
         return newCounter;
       });
-    }, 500);
+    }, 1000);
 
     return () => clearInterval(timerId);
   }, []);
