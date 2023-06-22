@@ -38,10 +38,30 @@ export function FormView() {
   return (
     <div className='flex gap-xl flex-wrap p-m'>
       <div className='flex flex-col items-start'>
-        <TextField label="First name" name="firstName" value={person.firstName} onChange={handleFormChange}/>
-        <TextField label="Last name" name="lastName" value={person.lastName} onChange={handleFormChange}/>
-        <EmailField label="Email" name="email" value={person.email} onChange={handleFormChange}/>
-        <DatePicker label="Date of birth" name="dateOfBirth" value={person.dateOfBirth} onChange={handleFormChange}/>
+        <TextField
+          label="First name"
+          name="firstName"
+          required
+          value={person.firstName}
+          onChange={handleFormChange}/>
+        <TextField
+          label="Last name"
+          name="lastName"
+          required
+          value={person.lastName}
+          onChange={handleFormChange}/>
+        <EmailField
+          label="Email"
+          name="email"
+          required
+          value={person.email}
+          onChange={handleFormChange}/>
+        <DatePicker
+          label="Date of birth"
+          name="dateOfBirth"
+          required
+          value={person.dateOfBirth}
+          onChange={handleFormChange}/>
 
         <div className='flex gap-s'>
           <Button theme="primary" onClick={save}>Save</Button>
