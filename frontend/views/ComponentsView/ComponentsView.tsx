@@ -94,15 +94,26 @@ export function ComponentsView() {
           xAxis: {
             type: 'datetime',
           },
+          yAxis: {
+            title: {
+              text: 'kLOC/h',
+            }
+          },
           plotOptions: {
             line: {
               marker: {
                 enabled: false
               }
             }
-          }
+          },
+          series: [
+            {
+              type: 'line',
+              data: developerProductivity,
+              name: 'Productivity',
+            }
+          ]
         }}>
-          <ChartSeries type="line" values={developerProductivity} title="Productivity" unit="kLOC/h" />
         </Chart>
       </div>
 
