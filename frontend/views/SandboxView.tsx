@@ -1,6 +1,6 @@
 import { Button } from '@hilla/react-components/Button.js';
 import { TextField } from '@hilla/react-components/TextField.js';
-import { HelloWorldEndpoint } from 'Frontend/generated/endpoints.js';
+import { HelloWorldService } from 'Frontend/generated/endpoints.js';
 import { useState } from 'react';
 
 export function SandboxView() {
@@ -8,7 +8,7 @@ export function SandboxView() {
   const [greetings, setGreetings] = useState<string[]>([]);
 
   async function sayHello() {
-    const greeting = await HelloWorldEndpoint.sayHello(name);
+    const greeting = await HelloWorldService.sayHello(name);
     setGreetings((greetings) => [...greetings, greeting]);
     setName('');
   }

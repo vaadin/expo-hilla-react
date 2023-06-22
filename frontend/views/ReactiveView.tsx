@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Person from 'Frontend/generated/com/example/application/data/entity/Person';
-import { PersonEndpoint } from 'Frontend/generated/endpoints';
+import { PersonService } from 'Frontend/generated/endpoints';
 import { Grid } from '@hilla/react-components/Grid';
 import { GridSortColumn } from '@hilla/react-components/GridSortColumn';
 
@@ -8,7 +8,7 @@ export function ReactiveView() {
   const [people, setPeople] = useState<Person[]>([]);
 
   useEffect(() => {
-    const sub = PersonEndpoint.getPersonStream().onNext(person => {
+    const sub = PersonService.getPersonStream().onNext(person => {
       setPeople(prevState => [...prevState, person])
     })
 

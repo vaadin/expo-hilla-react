@@ -1,4 +1,4 @@
-package com.example.application.endpoints;
+package com.example.application.service;
 
 import java.time.Duration;
 import java.util.List;
@@ -10,10 +10,10 @@ import reactor.core.publisher.Flux;
 
 @Endpoint
 @AnonymousAllowed
-class PersonEndpoint {
+class PersonService {
   private PersonRepository repo;
 
-  PersonEndpoint(PersonRepository repo) {
+  PersonService(PersonRepository repo) {
     this.repo = repo;
   }
 

@@ -1,11 +1,11 @@
-package com.example.application.endpoints;
+package com.example.application.service;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.Endpoint;
 
 @Endpoint
 @AnonymousAllowed
-public class HelloWorldEndpoint {
+public class HelloWorldService {
 
     public String sayHello(String name) {
         if (name.isEmpty()) {

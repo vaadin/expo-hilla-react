@@ -7,7 +7,6 @@ import { Checkbox } from '@hilla/react-components/Checkbox.js';
 import { DateTimePicker } from '@hilla/react-components/DateTimePicker.js';
 import { useEffect, useState } from 'react';
 import Person from 'Frontend/generated/com/example/application/data/entity/Person';
-import { PersonEndpoint } from 'Frontend/generated/endpoints';
 import { Grid } from '@hilla/react-components/Grid.js';
 import { GridColumn } from '@hilla/react-components/GridColumn.js';
 import { GridSelectionColumn } from '@hilla/react-components/GridSelectionColumn';
@@ -25,6 +24,7 @@ import { Tab } from '@hilla/react-components/Tab';
 import { RichTextEditor } from '@hilla/react-components/RichTextEditor';
 import { Chart } from '@hilla/react-components/Chart';
 import { ChartSeries } from '@hilla/react-components/ChartSeries';
+import { PersonService } from 'Frontend/generated/endpoints';
 
 type PersonWithFullName = Person & {
   name: string
@@ -81,7 +81,7 @@ export function ComponentsView() {
   ];
 
   useEffect(() => {
-    PersonEndpoint.findAll().then((people) => setPeople(
+    PersonService.findAll().then((people) => setPeople(
       people.map(p => ({ ...p, name: `${p.firstName} ${p.lastName}` }))
     ));
   }, []);

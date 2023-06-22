@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
-import { ChatEndpoint } from 'Frontend/generated/endpoints';
-import  Message  from 'Frontend/generated/com/example/application/endpoints/ChatEndpoint/Message';
 import { MessageList } from '@hilla/react-components/MessageList';
 import { MessageInput } from '@hilla/react-components/MessageInput';
+import { ChatService } from 'Frontend/generated/endpoints';
+import Message from 'Frontend/generated/com/example/application/service/ChatService/Message';
 
 export function ChatView() {
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    ChatEndpoint.joinChat().onNext((message) => {
+    ChatService.joinChat().onNext((message) => {
       setMessages((prevState) => [...prevState, message]);
     });
   }, []);
 
   function send(text: string) {
-    ChatEndpoint.sendMessage("Human", text);
+    ChatService.sendMessage("Human", text);
   }
 
   return (
