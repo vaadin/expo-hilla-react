@@ -5,10 +5,11 @@ import java.util.List;
 import com.example.application.data.entity.Person;
 import com.example.application.data.repository.PersonRepository;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import dev.hilla.BrowserCallable;
 import dev.hilla.Endpoint;
 import reactor.core.publisher.Flux;
 
-@Endpoint
+@BrowserCallable
 @AnonymousAllowed
 class PersonService {
   private PersonRepository repo;

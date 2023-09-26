@@ -1,11 +1,11 @@
 import MainLayout from 'Frontend/views/MainLayout.js';
-import { createBrowserRouter, RouteObject } from 'react-router-dom';
 import { SandboxView } from './views/SandboxView.js';
 import { ComponentsView } from 'Frontend/views/ComponentsView/ComponentsView.js';
 import { FormView } from 'Frontend/views/FormView.js';
 import { ReactiveView } from 'Frontend/views/ReactiveView';
 import { ChatView } from 'Frontend/views/ChatView.js';
 import { GridView } from 'Frontend/views/GridView';
+import { createBrowserRouter, RouteObject } from 'react-router-dom';
 
 type ViewRoute = RouteObject & {
   title: string;

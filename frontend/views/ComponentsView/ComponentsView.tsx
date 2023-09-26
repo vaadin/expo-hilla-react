@@ -23,7 +23,6 @@ import { Tabs } from '@hilla/react-components/Tabs';
 import { Tab } from '@hilla/react-components/Tab';
 import { RichTextEditor } from '@hilla/react-components/RichTextEditor';
 import { Chart } from '@hilla/react-components/Chart';
-import { ChartSeries } from '@hilla/react-components/ChartSeries';
 import { PersonService } from 'Frontend/generated/endpoints';
 
 type PersonWithFullName = Person & {
