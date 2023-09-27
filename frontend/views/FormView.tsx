@@ -5,12 +5,14 @@ import { Button } from '@hilla/react-components/Button.js';
 import { Notification } from '@hilla/react-components/Notification';
 import { useForm } from '@hilla/react-form';
 import PersonModel from 'Frontend/generated/com/example/application/data/entity/PersonModel';
+import { PersonService } from 'Frontend/generated/endpoints';
 
 export function FormView() {
 
   const { model, field, submit, reset } = useForm(PersonModel, {
     onSubmit: async (person) => {
-      Notification.show(`Saved ${person.firstName} ${person.lastName}`);
+      const saved = await PersonService.save(person);
+      Notification.show(`Saved ${saved.firstName} ${saved.lastName} with id ${saved.id}`);
     }
   });
 
