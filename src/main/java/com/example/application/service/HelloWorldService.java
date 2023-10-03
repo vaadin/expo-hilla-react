@@ -2,7 +2,6 @@ package com.example.application.service;
 
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.BrowserCallable;
-import dev.hilla.Endpoint;
 
 @BrowserCallable
 @AnonymousAllowed
