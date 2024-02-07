@@ -2,32 +2,27 @@ package com.example.application.service;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.UUID;
+
 import com.example.application.data.entity.Person;
 import com.example.application.data.repository.PersonRepository;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.BrowserCallable;
 import dev.hilla.Endpoint;
+import dev.hilla.crud.CrudRepositoryService;
 import reactor.core.publisher.Flux;
 
 @BrowserCallable
 @AnonymousAllowed
-class PersonService {
-  private PersonRepository repo;
+class PersonService extends CrudRepositoryService<Person, UUID, PersonRepository> {
 
-  PersonService(PersonRepository repo) {
-    this.repo = repo;
-  }
 
   public List<Person> findAll() {
-    return repo.findAll();
-  }
-
-  public Person save(Person person) {
-    return repo.save(person);
+    return getRepository().findAll();
   }
 
   public Flux<Person> getPersonStream() {
-    return Flux.fromIterable(repo.findAll())
+    return Flux.fromIterable(getRepository().findAll())
             .delayElements(Duration.ofSeconds(1));
   }
 }

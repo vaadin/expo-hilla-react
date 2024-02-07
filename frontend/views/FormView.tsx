@@ -12,7 +12,9 @@ export function FormView() {
   const { model, field, submit, reset } = useForm(PersonModel, {
     onSubmit: async (person) => {
       const saved = await PersonService.save(person);
-      Notification.show(`Saved ${saved.firstName} ${saved.lastName} with id ${saved.id}`);
+      if(saved) {
+        Notification.show(`Saved ${saved.firstName} ${saved.lastName} with id ${saved.id}`);
+      }
     }
   });
 
