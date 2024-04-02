@@ -6,8 +6,16 @@ import { Notification } from '@vaadin/react-components/Notification';
 import { useForm } from '@vaadin/hilla-react-form';
 import PersonModel from 'Frontend/generated/com/example/application/data/entity/PersonModel';
 import { PersonService } from 'Frontend/generated/endpoints';
+import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 
-export function FormView() {
+export const config: ViewConfig = {
+  menu: {
+    icon: 'la-pen'
+  }
+}
+
+
+export default function Form() {
 
   const { model, field, submit, reset } = useForm(PersonModel, {
     onSubmit: async (person) => {

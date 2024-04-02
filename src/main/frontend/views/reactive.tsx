@@ -3,8 +3,16 @@ import Person from 'Frontend/generated/com/example/application/data/entity/Perso
 import { PersonService } from 'Frontend/generated/endpoints';
 import { Grid } from '@vaadin/react-components/Grid';
 import { GridSortColumn } from '@vaadin/react-components/GridSortColumn';
+import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 
-export function ReactiveView() {
+export const config: ViewConfig = {
+  menu: {
+    icon: 'la-bell'
+  }
+}
+
+
+export default function Reactive() {
   const [people, setPeople] = useState<Person[]>([]);
 
   useEffect(() => {

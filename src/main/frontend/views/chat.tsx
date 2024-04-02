@@ -3,8 +3,15 @@ import { MessageList } from '@vaadin/react-components/MessageList';
 import { MessageInput } from '@vaadin/react-components/MessageInput';
 import { ChatService } from 'Frontend/generated/endpoints';
 import Message from 'Frontend/generated/com/example/application/service/ChatService/Message';
+import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 
-export function ChatView() {
+export const config: ViewConfig = {
+  menu: {
+    icon: 'la-comments'
+  }
+}
+
+export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {

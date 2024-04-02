@@ -1,4 +1,4 @@
-import './ComponentsView.css';
+import './components.css';
 import { Button } from '@vaadin/react-components/Button.js';
 import { RadioGroup } from '@vaadin/react-components/RadioGroup.js';
 import { RadioButton } from '@vaadin/react-components/RadioButton.js';
@@ -24,6 +24,14 @@ import { Tab } from '@vaadin/react-components/Tab';
 import { RichTextEditor } from '@vaadin/react-components/RichTextEditor';
 import { Chart } from '@vaadin/react-components/Chart';
 import { PersonService } from 'Frontend/generated/endpoints';
+import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
+
+export const config: ViewConfig = {
+  title: 'Components',
+  menu: {
+    icon: 'la-cubes'
+  }
+};
 
 type PersonWithFullName = Person & {
   name: string
@@ -34,7 +42,7 @@ type DataPoint = {
   y: number;
 }
 
-export function ComponentsView() {
+export default function Index() {
   const [people, setPeople] = useState<PersonWithFullName[]>([]);
   const [developerProductivity, setDeveloperProductivity] = useState<DataPoint[]>([]);
   const [counter, setCounter] = useState(0);
@@ -89,13 +97,13 @@ export function ComponentsView() {
     <div className='components-view'>
 
       <div className='component col-span-3 tall'>
-        <Chart type="line" title="Developer productivity" additionalOptions={{
+        <Chart type='line' title='Developer productivity' additionalOptions={{
           xAxis: {
-            type: 'datetime',
+            type: 'datetime'
           },
           yAxis: {
             title: {
-              text: 'kLOC/h',
+              text: 'kLOC/h'
             }
           },
           plotOptions: {
@@ -109,7 +117,7 @@ export function ComponentsView() {
             {
               type: 'line',
               data: developerProductivity,
-              name: 'Productivity',
+              name: 'Productivity'
             }
           ]
         }}>
@@ -166,7 +174,6 @@ export function ComponentsView() {
           label='People' value={people[1]?.id}
         />
       </div>
-
 
 
       <div className='component tall col-span-2 flex-col'>

@@ -3,8 +3,15 @@ import { useEffect, useState } from 'react';
 import Person from 'Frontend/generated/com/example/application/data/entity/Person';
 import { GridSortColumn } from '@vaadin/react-components/GridSortColumn';
 import { PersonService } from 'Frontend/generated/endpoints';
+import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 
-export function GridView() {
+export const config: ViewConfig = {
+  menu: {
+    icon: 'la-th'
+  }
+}
+
+export default function GridView() {
   const [people, setPeople] = useState<Person[]>([]);
 
   useEffect(() => {

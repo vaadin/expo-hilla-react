@@ -1,14 +1,15 @@
 import { AppLayout } from '@vaadin/react-components/AppLayout.js';
 import { DrawerToggle } from '@vaadin/react-components/DrawerToggle.js';
 import Placeholder from 'Frontend/components/placeholder/Placeholder.js';
-import { views } from 'Frontend/routes.js';
 import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Checkbox } from '@vaadin/react-components/Checkbox.js';
+import { createMenuItems } from '@vaadin/hilla-file-router/runtime.js';
 
-export default function MainLayout() {
+export default function Layout() {
   const location = useLocation();
   const [darkTheme, setDarkTheme] = useState(true);
+  const views = createMenuItems();
 
   useEffect(() => toggleTheme(darkTheme), [darkTheme]);
 
@@ -23,8 +24,8 @@ export default function MainLayout() {
 
         <ul className='list-none px-0 text-secondary font-medium flex-grow'>
           {views.map((view) => (
-            <li key={view.path}>
-              <NavLink to={view.path!} className='flex gap-s items-center'>
+            <li key={view.to}>
+              <NavLink to={view.to} className='flex gap-s items-center'>
                 <i className={`la ${view.icon} text-xl`}></i>
                 {view.title}
               </NavLink>
@@ -41,7 +42,7 @@ export default function MainLayout() {
       <div slot='navbar' className='flex gap-m items-center'>
         <DrawerToggle aria-label='Menu toggle' className='text-secondary'></DrawerToggle>
         <h1 className='text-l m-0'>
-          {views.find((v) => v.path === location.pathname)?.title || ''}
+          {views.find((v) => v.to === location.pathname)?.title || ''}
         </h1>
       </div>
 

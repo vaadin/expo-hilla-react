@@ -2,8 +2,16 @@ import { Button } from '@vaadin/react-components/Button.js';
 import { TextField } from '@vaadin/react-components/TextField.js';
 import { HelloWorldService } from 'Frontend/generated/endpoints.js';
 import { useState } from 'react';
+import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 
-export function SandboxView() {
+export const config: ViewConfig = {
+  menu: {
+    icon: 'la-code'
+  }
+}
+
+
+export default function Playground() {
   const [name, setName] = useState('');
   const [greetings, setGreetings] = useState<string[]>([]);
 
