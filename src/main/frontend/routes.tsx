@@ -21,7 +21,7 @@ export const views: ViewRoute[] = [
   { path: '/sandbox', title: 'Sandbox', icon: 'la-code', element: <SandboxView /> }
 ];
 
-const routes: RouteObject[] = [
+export const routes: RouteObject[] = [
   {
     element: <MainLayout />,
     children: views

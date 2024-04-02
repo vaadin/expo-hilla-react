@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { MessageList } from '@hilla/react-components/MessageList';
-import { MessageInput } from '@hilla/react-components/MessageInput';
+import { MessageList } from '@vaadin/react-components/MessageList';
+import { MessageInput } from '@vaadin/react-components/MessageInput';
 import { ChatService } from 'Frontend/generated/endpoints';
 import Message from 'Frontend/generated/com/example/application/service/ChatService/Message';
 

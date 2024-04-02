@@ -1,7 +1,7 @@
-import { Grid } from '@hilla/react-components/Grid.js';
+import { Grid } from '@vaadin/react-components/Grid.js';
 import { useEffect, useState } from 'react';
 import Person from 'Frontend/generated/com/example/application/data/entity/Person';
-import { GridSortColumn } from '@hilla/react-components/GridSortColumn';
+import { GridSortColumn } from '@vaadin/react-components/GridSortColumn';
 import { PersonService } from 'Frontend/generated/endpoints';
 
 export function GridView() {

@@ -1,9 +1,9 @@
-import { TextField } from '@hilla/react-components/TextField.js';
-import { EmailField } from '@hilla/react-components/EmailField.js';
-import { DatePicker } from '@hilla/react-components/DatePicker.js';
-import { Button } from '@hilla/react-components/Button.js';
-import { Notification } from '@hilla/react-components/Notification';
-import { useForm } from '@hilla/react-form';
+import { TextField } from '@vaadin/react-components/TextField.js';
+import { EmailField } from '@vaadin/react-components/EmailField.js';
+import { DatePicker } from '@vaadin/react-components/DatePicker.js';
+import { Button } from '@vaadin/react-components/Button.js';
+import { Notification } from '@vaadin/react-components/Notification';
+import { useForm } from '@vaadin/hilla-react-form';
 import PersonModel from 'Frontend/generated/com/example/application/data/entity/PersonModel';
 import { PersonService } from 'Frontend/generated/endpoints';
 

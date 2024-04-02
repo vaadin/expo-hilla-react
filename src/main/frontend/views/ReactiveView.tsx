@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import Person from 'Frontend/generated/com/example/application/data/entity/Person';
 import { PersonService } from 'Frontend/generated/endpoints';
-import { Grid } from '@hilla/react-components/Grid';
-import { GridSortColumn } from '@hilla/react-components/GridSortColumn';
+import { Grid } from '@vaadin/react-components/Grid';
+import { GridSortColumn } from '@vaadin/react-components/GridSortColumn';
 
 export function ReactiveView() {
   const [people, setPeople] = useState<Person[]>([]);

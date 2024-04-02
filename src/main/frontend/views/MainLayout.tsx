@@ -1,10 +1,10 @@
-import { AppLayout } from '@hilla/react-components/AppLayout.js';
-import { DrawerToggle } from '@hilla/react-components/DrawerToggle.js';
+import { AppLayout } from '@vaadin/react-components/AppLayout.js';
+import { DrawerToggle } from '@vaadin/react-components/DrawerToggle.js';
 import Placeholder from 'Frontend/components/placeholder/Placeholder.js';
 import { views } from 'Frontend/routes.js';
 import { Suspense, useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Checkbox } from '@hilla/react-components/Checkbox.js';
+import { Checkbox } from '@vaadin/react-components/Checkbox.js';
 
 export default function MainLayout() {
   const location = useLocation();

@@ -2,8 +2,8 @@ package com.example.application.service;
 
 import com.example.application.service.openai.ChatGPTService;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-import dev.hilla.BrowserCallable;
-import dev.hilla.Endpoint;
+import com.vaadin.hilla.BrowserCallable;
+import com.vaadin.hilla.Endpoint;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;
 

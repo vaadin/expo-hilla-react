@@ -7,9 +7,9 @@ import java.util.UUID;
 import com.example.application.data.entity.Person;
 import com.example.application.data.repository.PersonRepository;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
-import dev.hilla.BrowserCallable;
-import dev.hilla.Endpoint;
-import dev.hilla.crud.CrudRepositoryService;
+import com.vaadin.hilla.BrowserCallable;
+import com.vaadin.hilla.Endpoint;
+import com.vaadin.hilla.crud.CrudRepositoryService;
 import reactor.core.publisher.Flux;
 
 @BrowserCallable
