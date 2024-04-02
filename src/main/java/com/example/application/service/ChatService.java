@@ -1,9 +1,8 @@
 package com.example.application.service;
 
-import com.example.application.service.openai.ChatGPTService;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import com.vaadin.hilla.BrowserCallable;
-import com.vaadin.hilla.Endpoint;
+import org.springframework.ai.chat.StreamingChatClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;
 
@@ -13,34 +12,14 @@ import java.time.Instant;
 @AnonymousAllowed
 public class ChatService {
 
-    public ChatService(ChatGPTService chatGPTService) {
-        this.chatGPTService = chatGPTService;
+    private final StreamingChatClient chatClient;
+
+    public ChatService(StreamingChatClient chatClient) {
+        this.chatClient = chatClient;
     }
 
-    public record Message(
-            String userName,
-            String text,
-            Instant time
-    ) {
-    }
-
-    Sinks.Many<Message> messageSink = Sinks.many().multicast().directBestEffort();
-    Flux<Message> chat = messageSink.asFlux();
-
-    private final ChatGPTService chatGPTService;
-
-    public Flux<Message> joinChat() {
-        return chat;
-    }
-
-    public void sendMessage(String userName, String text) {
-        messageSink.tryEmitNext(
-                new Message(userName, text, Instant.now())
-        );
-
-        chatGPTService.getAnswer(text).subscribe(answer -> {
-            messageSink.tryEmitNext(new Message("Chatbot", answer, Instant.now()));
-        });
+    public Flux<String> askQuestion(String question) {
+        return chatClient.stream(question);
     }
 
 }

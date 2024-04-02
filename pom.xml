@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/ -->
     <groupId>com.example.application</groupId>
@@ -13,6 +13,7 @@
     <properties>
         <java.version>17</java.version>
         <vaadin.version>24.4.0.alpha18</vaadin.version>
+        <spring.ai.version>0.8.1-SNAPSHOT</spring.ai.version>
     </properties>
 
     <parent>
@@ -47,6 +48,22 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -76,6 +93,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring.ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -88,6 +112,10 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -131,9 +159,11 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <jvmArguments>-Xdebug
-                        -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5591</jvmArguments>
+                        -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5591
+                    </jvmArguments>
                     <wait>
-                        500</wait>
+                        500
+                    </wait>
                     <maxAttempts>240</maxAttempts>
                 </configuration>
             </plugin>
@@ -228,7 +258,8 @@
                         </executions>
                         <configuration>
                             <trimStackTrace>
-                                false</trimStackTrace>
+                                false
+                            </trimStackTrace>
                             <enableAssertions>true</enableAssertions>
                         </configuration>
                     </plugin>
