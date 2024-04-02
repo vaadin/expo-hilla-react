@@ -13,7 +13,7 @@ export const config: ViewConfig = {
     order: 200,
     icon: 'la-pen'
   }
-}
+};
 
 
 export default function Form() {
@@ -21,21 +21,21 @@ export default function Form() {
   const { model, field, submit, reset } = useForm(PersonModel, {
     onSubmit: async (person) => {
       const saved = await PersonService.save(person);
-      if(saved) {
+      if (saved) {
         Notification.show(`Saved ${saved.firstName} ${saved.lastName} with id ${saved.id}`);
       }
     }
   });
 
   return (
-    <div className="p-m flex flex-col items-start">
+    <div className='p-m flex flex-col items-start'>
       <TextField label='First name' {...field(model.firstName)} />
       <TextField label='Last name' {...field(model.lastName)} />
       <EmailField label='Email' {...field(model.email)} />
       <DatePicker label='Date of birth' {...field(model.dateOfBirth)} />
 
-      <div className="flex gap-m mt-l">
-        <Button theme="primary" onClick={submit}>Save</Button>
+      <div className='flex gap-m mt-l'>
+        <Button theme='primary' onClick={submit}>Save</Button>
         <Button onClick={reset}>Reset</Button>
       </div>
     </div>

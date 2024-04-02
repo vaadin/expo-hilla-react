@@ -10,7 +10,7 @@ export const config: ViewConfig = {
     order: 100,
     icon: 'la-th'
   }
-}
+};
 
 export default function GridView() {
   const [people, setPeople] = useState<Person[]>([]);

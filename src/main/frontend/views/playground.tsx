@@ -9,7 +9,7 @@ export const config: ViewConfig = {
     order: 400,
     icon: 'la-code'
   }
-}
+};
 
 
 export default function Playground() {
