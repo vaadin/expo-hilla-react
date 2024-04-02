@@ -6,7 +6,7 @@ import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 
 export const config: ViewConfig = {
   menu: {
-    order: 500,
+    order: 400,
     icon: 'la-code'
   }
 }
