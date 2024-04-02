@@ -7,6 +7,7 @@ import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 
 export const config: ViewConfig = {
   menu: {
+    order: 400,
     icon: 'la-comments'
   }
 }

@@ -29,6 +29,7 @@ import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
 export const config: ViewConfig = {
   title: 'Components',
   menu: {
+    order: 0,
     icon: 'la-cubes'
   }
 };
