@@ -100,7 +100,8 @@
     "proj4": "$proj4",
     "@vaadin/vaadin-themable-mixin": "$@vaadin/vaadin-themable-mixin",
     "@vaadin/vaadin-lumo-styles": "$@vaadin/vaadin-lumo-styles",
-    "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles"
+    "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
+    "react-markdown": "$react-markdown"
   },
   "vaadin": {
     "dependencies": {
@@ -160,6 +161,6 @@
       "workbox-core": "7.0.0",
       "workbox-precaching": "7.0.0"
     },
-    "hash": "91ce38dd7e731071dda4e57833635a92c942cb90a09ecacce818e701d613481d"
+    "hash": "71a753ce56b4e841734729f9f16b70dd3bddb1af6c8a137411f7ffb7a1f04e5a"
   }
 }

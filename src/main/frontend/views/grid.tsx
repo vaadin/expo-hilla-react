@@ -4,6 +4,8 @@ import Person from 'Frontend/generated/com/example/application/data/entity/Perso
 import { GridSortColumn } from '@vaadin/react-components/GridSortColumn';
 import { PersonService } from 'Frontend/generated/endpoints';
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
+import { AutoCrud, AutoGrid } from '@vaadin/hilla-react-crud';
+import PersonModel from 'Frontend/generated/com/example/application/data/entity/PersonModel';
 
 export const config: ViewConfig = {
   menu: {
@@ -21,11 +23,10 @@ export default function GridView() {
 
 
   return (
-    <Grid items={people} className='m-m h-full'>
-      <GridSortColumn path='firstName' />
-      <GridSortColumn path='lastName' />
-      <GridSortColumn path='email' autoWidth />
-      <GridSortColumn path='dateOfBirth' />
-    </Grid>
+    <AutoCrud
+      service={PersonService}
+      model={PersonModel}
+      className="h-full"
+    />
   );
 }
