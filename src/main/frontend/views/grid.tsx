@@ -15,13 +15,6 @@ export const config: ViewConfig = {
 };
 
 export default function GridView() {
-  const [people, setPeople] = useState<Person[]>([]);
-
-  useEffect(() => {
-    PersonService.findAll().then(setPeople);
-  }, []);
-
-
   return (
     <AutoCrud
       service={PersonService}
