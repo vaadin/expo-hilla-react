@@ -21,10 +21,10 @@ import { MultiSelectComboBox } from '@vaadin/react-components/MultiSelectComboBo
 import { LoginForm } from '@vaadin/react-components/LoginForm';
 import { Tabs } from '@vaadin/react-components/Tabs';
 import { Tab } from '@vaadin/react-components/Tab';
-import { RichTextEditor } from '@vaadin/react-components/RichTextEditor';
-import { Chart } from '@vaadin/react-components/Chart';
+
 import { PersonService } from 'Frontend/generated/endpoints';
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
+import { Chart, RichTextEditor } from '@vaadin/react-components-pro';
 
 export const config: ViewConfig = {
   title: 'Components',
