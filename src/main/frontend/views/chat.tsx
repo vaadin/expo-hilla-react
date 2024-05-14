@@ -13,7 +13,7 @@ export const config: ViewConfig = {
 };
 
 export default function Chat() {
-  const messages = useSignal<MessageItem[]>([{
+  const [messages, setMessages] = useState<MessageItem[]>([{
     role: 'assistant',
     content: 'Hello! How can I help you today?'
   }]);
@@ -21,7 +21,7 @@ export default function Chat() {
 
   function send(text: string) {
 
-    messages.value = ([...messages.value, {
+    setMessages(prev => [...prev, {
       role: 'user',
       content: text
     }]);
@@ -31,7 +31,7 @@ export default function Chat() {
 
       // on the first chunk, append a new message with role 'assistant' and the first chunk of the response
       if (first) {
-        messages.value = ([...messages.value, {
+        setMessages(prev => [...prev, {
           role: 'assistant',
           content: chunk
         }]);
@@ -39,8 +39,8 @@ export default function Chat() {
       } else {
 
         // on subsequent chunks, update the last message with the new chunk
-        messages.value = (messages.value.map((message, index) => {
-          if (index === messages.value.length - 1) {
+        setMessages(prev => prev.map((message, index) => {
+          if (index === prev.length - 1) {
             return {
               ...message,
               content: message.content + chunk
@@ -55,7 +55,7 @@ export default function Chat() {
   return (
     <div className='flex flex-col p-m box-border h-full'>
       <div className='flex-grow overflow-scroll'>
-        {messages.value.map((message, index) => (
+        {messages.map((message, index) => (
           <Message key={index} message={message} />
         ))}
       </div>
